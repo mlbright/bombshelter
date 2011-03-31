@@ -175,8 +175,8 @@ public class SafestPlace implements Runnable {
             long now = System.currentTimeMillis();
             reader = new BufferedReader(new FileReader(TASK_ID + ".in"));
             writer = new PrintWriter(TASK_ID + ".out");
-            //solveParallel();
-            solveSequential();
+            solveParallel();
+            //solveSequential();
             reader.close();
             writer.close();
             System.out.println(System.currentTimeMillis() - now + "ms");
