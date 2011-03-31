@@ -12,18 +12,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class SafestPlace implements Runnable {
+
     class Solver implements Runnable {
         int testId;
         boolean failed = false;
-
-        Solver(int testId) {
-            this.testId = testId;
-        }
 
         int n;
         int[] x;
         int[] y;
         int[] z;
+
+        Solver(int testId) {
+            this.testId = testId;
+        }
 
         private void readInput() {
             n = nextInt();
@@ -43,7 +44,7 @@ public class SafestPlace implements Runnable {
             int[] event = new int[2 * n];
             res = 0;
             for (int rx = 0; rx <= 1000; ++rx) {
-                //if (rx % 10 == 0) System.out.println(rx);
+                if (rx % 10 == 0) System.out.println(rx);
                 int saved = -1;
                 for (int ry = 0; ry <= 1000; ++ry) {
                     if (verify(event, rx, ry, res)) continue;
@@ -175,8 +176,8 @@ public class SafestPlace implements Runnable {
             long now = System.currentTimeMillis();
             reader = new BufferedReader(new FileReader(TASK_ID + ".in"));
             writer = new PrintWriter(TASK_ID + ".out");
-            solveParallel();
-            //solveSequential();
+            //solveParallel();
+            solveSequential();
             reader.close();
             writer.close();
             System.out.println(System.currentTimeMillis() - now + "ms");
